@@ -1,0 +1,101 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Number Input Form</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+margin: 20px;
+}
+.form-container {
+width: 300px;
+margin: auto;
+padding: 20px;
+border: 1px solid #ccc;
+border-radius: 8px;
+background-color: #f9f9f9;
+}
+.form-container input {
+width: 100%;
+padding: 8px;
+margin: 10px 0;
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+.form-container button {
+padding: 8px 16px;
+margin: 5px;
+border: none;
+cursor: pointer;
+border-radius: 4px;
+}
+.submit-btn {
+background-color: #4CAF50;
+color: white;
+}
+.cancel-btn {
+background-color: #f44336;
+color: white;
+}
+.ok-btn {
+background-color: #2196F3;
+color: white;
+}
+.result-container {
+margin-top: 10px;
+}
+.result-label {
+display: block;
+margin: 10px 0 5px;
+font-weight: bold;
+}
+.result {
+width: 100%;
+padding: 8px;
+border: 1px solid #ccc;
+border-radius: 4px;
+background-color: #f1f1f1;
+color: #555;
+text-align: center;
+}
+</style>
+</head>
+<body><div class="form-container">
+<label for="num1">Enter number 1:</label>
+<input type="number" id="num1" name="num1">
+<label for="num2">Enter number 2:</label>
+<input type="number" id="num2" name="num2">
+<div class="result-container">
+<label class="result-label" for="result">Result:</label>
+<input type="text" id="result" class="result" readonly>
+</div>
+<button class="ok-btn" onclick="showOkMessage()">Ok</button>
+<button class="submit-btn" onclick="calculateResult()">Submit</button>
+<button class="cancel-btn" onclick="clearFields()">Cancel</button>
+</div>
+<script>
+function calculateResult() {
+var num1 = parseFloat(document.getElementById('num1').value);
+var num2 = parseFloat(document.getElementById('num2').value);
+if (isNaN(num1) || isNaN(num2)) {
+alert("Please enter valid numbers.");
+return;
+}
+var result = num1 + num2;
+document.getElementById('result').value = result; // Display result in the result input
+}
+function clearFields() {
+document.getElementById('num1').value = "";
+document.getElementById('num2').value = "";
+document.getElementById('result').value = ""
+}
+function showOkMessage() {
+alert("Ok clicked");
+}
+</script>
+</body>
+</html>
